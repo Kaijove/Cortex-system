@@ -10,14 +10,6 @@ A real-time system monitoring desktop app that tells you the truth — what's me
 
 ![status](https://img.shields.io/badge/status-production--ready-2dd4ee) ![license](https://img.shields.io/badge/license-MIT-a78bfa) ![stack](https://img.shields.io/badge/stack-React%20%2B%20Rust-34d399) ![i18n](https://img.shields.io/badge/i18n-CA%20%7C%20EN-f5a623)
 
-<br/>
-
-<img src="docs/screenshots/hero-overview.png" alt="Cortex dashboard overview — health score, analytics, network and sensors panels in the Cyberpunk theme" width="100%" />
-
-</div>
-
-> **[Try the live preview →](https://cortex-system.netlify.app/)** runs in **simulated mode** (a browser can't read your CPU/RAM — that needs the desktop app). The header always shows **SIMULATED** or **LIVE** so you always know which one you're looking at.
-
 ---
 
 ## What this actually is
