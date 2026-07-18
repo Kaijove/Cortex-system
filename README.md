@@ -47,7 +47,7 @@ That distinction is the actual point of the project, not a footnote.
 </tr>
 </table>
 
-<img src="docs/screenshots/network-suite.png" alt="Professional network suite: speed test, bandwidth monitor, connection quality, service status" width="100%"/>
+<img src="docs/screenshots/network-suite.png" alt="Professional network suite: speed test, bandwidth monitor, connection quality, service status" width="30%"/>
 <p align="center"><b>Professional Network Suite</b> — a genuine Cloudflare-backed speed test, real bandwidth/latency/DNS measurements, and live reachability checks against 9 real services.</p>
 
 <img src="docs/screenshots/automation.png" alt="Automation rule engine, scheduler and notification preferences" width="50%"/>
