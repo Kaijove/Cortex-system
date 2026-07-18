@@ -62,7 +62,7 @@ That distinction is the actual point of the project, not a footnote.
 
 <table>
 <tr>
-<td width="50%"><img src="docs/screenshots/settings-appearance.png" alt="Settings: themes, language, accent color, profiles" width="100%"/><p align="center">9 built-in themes, a live CA/EN language switcher, custom accent colors, and profiles — all driven by CSS custom properties.</p></td>
+<td width="30%"><img src="docs/screenshots/settings-appearance.png" alt="Settings: themes, language, accent color, profiles" width="100%"/><p align="center">9 built-in themes, a live CA/EN language switcher, custom accent colors, and profiles — all driven by CSS custom properties.</p></td>
 <td width="50%"><img src="docs/screenshots/quick-actions.png" alt="Floating quick actions menu" width="100%"/><p align="center">A floating action menu with real wired actions: speed test, snapshot, export, theme switch, fullscreen.</p></td>
 </tr>
 <tr>
