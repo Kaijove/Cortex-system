@@ -129,6 +129,7 @@ A shared spring-based motion system, cursor-reactive aurora background, a free f
 ## Architecture
 
 ```
+```text
 src/
 ├── components/
 │   ├── layout/          App shell, Header, AuroraBackground,
@@ -149,24 +150,20 @@ src/
 │   └── i18n/            Translation dictionaries (ca.ts, en.ts)
 │                        and the useT() hook
 │
-├── store/               Zustand state management
-│   ├── systemStore.ts          Live OS metrics + polling
-│   ├── networkSuiteStore.ts    Real network diagnostics
-│   ├── toolsStore.ts           Process inspector, Docker/VM simulation,
-│   │                           snapshots
-│   ├── personalizationStore.ts Themes, layouts, profiles,
-│   │                           notes, locale
-│   ├── automationStore.ts      Rule engine, scheduler,
-│   │                           incident tracking
-│   └── analyticsStore.ts       Persistent historical metrics
+├── store/
+│   ├── systemStore.ts
+│   ├── networkSuiteStore.ts
+│   ├── toolsStore.ts
+│   ├── personalizationStore.ts
+│   ├── automationStore.ts
+│   └── analyticsStore.ts
 │
-└── types/               Shared domain models
+└── types/
 
 src-tauri/
-└── Rust backend
-    └── get_snapshot     Single command exposing real CPU, RAM,
-                         disk, network and process information
-                         via `sysinfo`
+└── get_snapshot         Rust command exposing real CPU, RAM,
+                         disk, network and process data via `sysinfo`
+```
 ```
 
 **Why this shape works:** nearly every visual concern (color, glass effect, spacing, animation timing) lives in `Card` and a handful of CSS custom properties. Features added later (themes, fullscreen, error boundaries, i18n) reach the whole app by touching that one shared layer, rather than 50 individual panel files.
