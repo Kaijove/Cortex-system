@@ -130,25 +130,43 @@ A shared spring-based motion system, cursor-reactive aurora background, a free f
 
 ```
 src/
-  store/            Six Zustand stores, one per domain:
-                       systemStore        — live OS metrics + tick loop
-                       networkSuiteStore  — real network probes
-                       toolsStore         — process inspector, Docker/VM sim, snapshots
-                       personalizationStore — themes, layout order, profiles, notes, locale
-                       automationStore    — rule engine, scheduler, incidents
-                       analyticsStore     — persistent real history
-  lib/              Pure functions: math (correlation, regression), export
-                     utilities, theme tokens, sound synthesis, network probes, i18n
-  lib/i18n/          Translation dictionaries (ca.ts, en.ts) + useT() hook
-  hooks/            One polling hook per store, composed into a single master loop
-  components/
-    layout/         Header, AuroraBackground, DraggableWidget, CursorGlow
-    panels/         ~50 self-contained widget components
-    ui/             Shared primitives: Card, ProgressBar, RadialGauge, StatTile,
-                     ContextMenu, EmptyState, Skeleton, WidgetErrorBoundary
-  types/            Domain types, one file per module
-src-tauri/          Rust backend: a single `get_snapshot` command reading
-                     real CPU/RAM/disk/network/process data via `sysinfo`
+├── components/
+│   ├── layout/          App shell, Header, AuroraBackground,
+│   │                    DraggableWidget, CursorGlow
+│   ├── panels/          ~50 self-contained dashboard widgets
+│   └── ui/              Shared UI primitives (Card, ProgressBar,
+│                        RadialGauge, StatTile, ContextMenu,
+│                        EmptyState, Skeleton, WidgetErrorBoundary)
+│
+├── hooks/               Polling hooks and shared React hooks
+│
+├── lib/
+│   ├── analytics/       Correlation, regression and statistics
+│   ├── export/          CSV / JSON export utilities
+│   ├── network/         Real network probes
+│   ├── audio/           Sound synthesis utilities
+│   ├── theme/           Theme tokens and helpers
+│   └── i18n/            Translation dictionaries (ca.ts, en.ts)
+│                        and the useT() hook
+│
+├── store/               Zustand state management
+│   ├── systemStore.ts          Live OS metrics + polling
+│   ├── networkSuiteStore.ts    Real network diagnostics
+│   ├── toolsStore.ts           Process inspector, Docker/VM simulation,
+│   │                           snapshots
+│   ├── personalizationStore.ts Themes, layouts, profiles,
+│   │                           notes, locale
+│   ├── automationStore.ts      Rule engine, scheduler,
+│   │                           incident tracking
+│   └── analyticsStore.ts       Persistent historical metrics
+│
+└── types/               Shared domain models
+
+src-tauri/
+└── Rust backend
+    └── get_snapshot     Single command exposing real CPU, RAM,
+                         disk, network and process information
+                         via `sysinfo`
 ```
 
 **Why this shape works:** nearly every visual concern (color, glass effect, spacing, animation timing) lives in `Card` and a handful of CSS custom properties. Features added later (themes, fullscreen, error boundaries, i18n) reach the whole app by touching that one shared layer, rather than 50 individual panel files.
