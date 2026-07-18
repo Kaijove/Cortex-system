@@ -12,15 +12,73 @@ A real-time system monitoring desktop app that tells you the truth — what's me
 
 ---
 
-## What this actually is
+<h2>📖 What this actually is</h2>
 
-Cortex started as a simple system dashboard and grew, one honest module at a time, into a full monitoring platform: live OS metrics, network diagnostics, automation, analytics, and deep personalization. The one rule that never bent as it grew: **if a number isn't real, the UI says so** — instead of quietly inventing thirty days of history the app never collected, or a firewall status it has no way to check.
+<p>
+<b>Cortex</b> began as a simple system dashboard and gradually evolved into a complete monitoring platform for
+<b>real-time system metrics</b>, <b>network diagnostics</b>, <b>automation</b>,
+<b>analytics</b>, <b>AI-assisted insights</b> and <b>deep personalization</b>.
+</p>
 
-Every value on screen is either:
-- **Real** — read straight from `sysinfo` on the Rust side, or measured live via `fetch()`/Web APIs (public IP, speed test, DNS latency, service uptime...)
-- **Clearly labeled illustrative** — tagged `exemple`/`N/D` in the UI, for the handful of things a sandboxed desktop app genuinely cannot verify (firewall rules, weather, Docker internals)
+<p align="center">
 
-That distinction is the actual point of the project, not a footnote.
+> <b>If a value isn't real, the interface tells you.</b>
+
+</p>
+
+<p>
+Unlike many dashboards that quietly invent historical data or display information they cannot actually verify,
+<b>Cortex is built around transparency.</b> Every value shown on screen clearly indicates where it comes from.
+</p>
+
+<table width="100%">
+<tr>
+
+<td width="50%" valign="top">
+
+### ✅ Real Data
+
+Everything here is genuinely measured.
+
+* 🖥️ Live CPU, RAM, disks and processes
+* 🌐 Real network diagnostics
+* 📡 Public IP, ISP and DNS latency
+* ⚡ Cloudflare-backed speed tests
+* 📊 Analytics generated from collected history
+* 🔍 Live service monitoring
+
+</td>
+
+<td width="50%" valign="top">
+
+### 🎨 Illustrative Data
+
+Some information simply cannot be verified.
+
+Instead of pretending otherwise, Cortex clearly labels it as **`EXAMPLE`** or **`N/D`**.
+
+* 🔒 Firewall rules
+* 🐳 Docker internals
+* 🌡️ Missing hardware sensors
+* ☁️ Unavailable operating system data
+
+</td>
+
+</tr>
+</table>
+
+<br>
+
+<div align="center">
+
+### 🎯 The Philosophy
+
+**Cortex doesn't try to look smart by inventing information.**
+
+It earns trust by clearly showing **what it knows**, **what it measures**, and **what it simply cannot verify**.
+
+</div>
+
 
 ## Screenshots
 
