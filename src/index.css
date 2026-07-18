@@ -1,0 +1,241 @@
+@import "tailwindcss";
+
+/* -----------------------------------------------------------------------
+   Design tokens — "control room" palette.
+   Near-black void + three signal colors mapped to what they mean (not
+   decoration): cyan = CPU/live, violet = memory, amber = disk, emerald =
+   network. Data is monospace (instrument-panel authenticity), labels are
+   a tight uppercase sans (eyebrow style used across real monitoring tools).
+   ----------------------------------------------------------------------- */
+:root {
+  color-scheme: dark;
+
+  --void: #05070d;
+  --glass-fill: rgba(148, 163, 184, 0.055);
+  --glass-fill-hover: rgba(148, 163, 184, 0.09);
+  --glass-border: rgba(148, 163, 184, 0.14);
+  --glass-border-hover: rgba(148, 163, 184, 0.26);
+
+  --signal-cyan: #2dd4ee;
+  --signal-violet: #a78bfa;
+  --signal-amber: #f5a623;
+  --signal-emerald: #34d399;
+  --signal-rose: #fb7185;
+
+  --text-hi: #e7ecf3;
+  --text-lo: #7c8798;
+
+  --font-mono: ui-monospace, 'SF Mono', 'Cascadia Code', 'JetBrains Mono', Menlo, Consolas, monospace;
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', ui-sans-serif, system-ui, sans-serif;
+}
+
+@theme inline {
+  --color-void: var(--void);
+  --color-glass: var(--glass-fill);
+  --color-signal-cyan: var(--signal-cyan);
+  --color-signal-violet: var(--signal-violet);
+  --color-signal-amber: var(--signal-amber);
+  --color-signal-emerald: var(--signal-emerald);
+  --color-signal-rose: var(--signal-rose);
+  --color-text-hi: var(--text-hi);
+  --color-text-lo: var(--text-lo);
+  --font-mono: var(--font-mono);
+  --font-sans: var(--font-sans);
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  background: var(--void);
+  color: var(--text-hi);
+  font-family: var(--font-sans);
+  transition: background-color 0.5s ease, color 0.5s ease;
+  @apply antialiased;
+}
+
+/* Smooth theme transitions: color-bearing surfaces animate when CSS vars change. */
+.glass-panel,
+[style*='--glass-fill'],
+button,
+svg circle,
+svg path,
+svg rect {
+  transition: background-color 0.4s ease, border-color 0.4s ease, color 0.4s ease, fill 0.4s ease, stroke 0.4s ease;
+}
+
+/* Numeric readouts use the mono stack everywhere via this utility. */
+.font-data {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Eyebrow-style panel labels: small, wide-tracked, uppercase. */
+.label-eyebrow {
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-lo);
+}
+
+.glass-panel {
+  border-color: var(--glass-border);
+  transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+}
+.glass-panel:hover {
+  border-color: var(--glass-border-hover);
+  background: var(--glass-fill-hover) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+.glass-panel:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Skeleton shimmer for loading states. */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.skeleton-shimmer {
+  background: linear-gradient(90deg, rgba(148,163,184,0.06) 25%, rgba(148,163,184,0.14) 50%, rgba(148,163,184,0.06) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.6s ease-in-out infinite;
+}
+
+/* Cursor glow follower, positioned via inline style from CursorGlow.tsx */
+.cursor-glow {
+  position: fixed;
+  z-index: 2;
+  pointer-events: none;
+  width: 300px;
+  height: 300px;
+  border-radius: 9999px;
+  background: radial-gradient(circle, var(--signal-cyan) 0%, transparent 70%);
+  opacity: 0.06;
+  transform: translate(-50%, -50%);
+  will-change: transform;
+}
+
+/* Accessibility: visible focus ring for keyboard navigation, app-wide. */
+:focus-visible {
+  outline: 2px solid var(--signal-cyan);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Accessibility overrides, toggled via data-attributes on <html> from Settings > Accessibilitat */
+html[data-reduced-motion='true'] * {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+}
+html[data-high-contrast='true'] {
+  --text-lo: #b9c2d0;
+  --glass-border: rgba(148, 163, 184, 0.34);
+  --glass-fill: rgba(148, 163, 184, 0.1);
+}
+
+/* -----------------------------------------------------------------------
+   Ambient background: three slow-drifting aurora blobs + a fine noise
+   overlay. This is the page's one orchestrated motion signature — every
+   other animation in the app stays quiet and purposeful by comparison.
+   ----------------------------------------------------------------------- */
+.aurora-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.aurora-blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(90px);
+  opacity: 0.28;
+  will-change: transform;
+}
+
+@keyframes aurora-breathe {
+  0%, 100% { filter: blur(90px) brightness(1); }
+  50% { filter: blur(100px) brightness(1.08); }
+}
+
+.aurora-blob--cyan {
+  width: 42vw;
+  height: 42vw;
+  top: -10%;
+  left: -8%;
+  background: radial-gradient(circle, var(--signal-cyan), transparent 70%);
+  animation: aurora-drift-1 34s ease-in-out infinite, aurora-breathe 8s ease-in-out infinite;
+}
+
+.aurora-blob--violet {
+  width: 38vw;
+  height: 38vw;
+  bottom: -14%;
+  right: -6%;
+  background: radial-gradient(circle, var(--signal-violet), transparent 70%);
+  animation: aurora-drift-2 40s ease-in-out infinite, aurora-breathe 8s ease-in-out infinite 1.5s;
+}
+
+.aurora-blob--emerald {
+  width: 30vw;
+  height: 30vw;
+  bottom: 10%;
+  left: 20%;
+  background: radial-gradient(circle, var(--signal-emerald), transparent 70%);
+  animation: aurora-drift-3 46s ease-in-out infinite, aurora-breathe 8s ease-in-out infinite 3s;
+}
+
+@keyframes aurora-drift-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(6vw, 8vh) scale(1.12); }
+}
+@keyframes aurora-drift-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-7vw, -6vh) scale(1.08); }
+}
+@keyframes aurora-drift-3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(4vw, -8vh) scale(1.15); }
+}
+
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.035;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Vignette to keep focus on the center content, standard in premium OS UIs. */
+.vignette-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, transparent 55%, rgba(0, 0, 0, 0.55) 100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora-blob {
+    animation: none !important;
+  }
+}
