@@ -128,43 +128,39 @@ A shared spring-based motion system, cursor-reactive aurora background, a free f
 
 ## Architecture
 
-```
-```text
-src/
-├── components/
-│   ├── layout/          App shell, Header, AuroraBackground,
-│   │                    DraggableWidget, CursorGlow
-│   ├── panels/          ~50 self-contained dashboard widgets
-│   └── ui/              Shared UI primitives (Card, ProgressBar,
-│                        RadialGauge, StatTile, ContextMenu,
-│                        EmptyState, Skeleton, WidgetErrorBoundary)
-│
-├── hooks/               Polling hooks and shared React hooks
-│
-├── lib/
-│   ├── analytics/       Correlation, regression and statistics
-│   ├── export/          CSV / JSON export utilities
-│   ├── network/         Real network probes
-│   ├── audio/           Sound synthesis utilities
-│   ├── theme/           Theme tokens and helpers
-│   └── i18n/            Translation dictionaries (ca.ts, en.ts)
-│                        and the useT() hook
-│
-├── store/
-│   ├── systemStore.ts
-│   ├── networkSuiteStore.ts
-│   ├── toolsStore.ts
-│   ├── personalizationStore.ts
-│   ├── automationStore.ts
-│   └── analyticsStore.ts
-│
-└── types/
+    src/
+    ├── components/
+    │   ├── layout/          App shell, Header, AuroraBackground,
+    │   │                    DraggableWidget, CursorGlow
+    │   ├── panels/          ~50 self-contained dashboard widgets
+    │   └── ui/               Shared UI primitives (Card, ProgressBar,
+    │                         RadialGauge, StatTile, ContextMenu,
+    │                         EmptyState, Skeleton, WidgetErrorBoundary)
+    │
+    ├── hooks/                Polling hooks and shared React hooks
+    │
+    ├── lib/
+    │   ├── analytics/        Correlation, regression and statistics
+    │   ├── export/           CSV / JSON export utilities
+    │   ├── network/          Real network probes
+    │   ├── audio/            Sound synthesis utilities
+    │   ├── theme/            Theme tokens and helpers
+    │   └── i18n/              Translation dictionaries (ca.ts, en.ts)
+    │                         and the useT() hook
+    │
+    ├── store/
+    │   ├── systemStore.ts
+    │   ├── networkSuiteStore.ts
+    │   ├── toolsStore.ts
+    │   ├── personalizationStore.ts
+    │   ├── automationStore.ts
+    │   └── analyticsStore.ts
+    │
+    └── types/
 
-src-tauri/
-└── get_snapshot         Rust command exposing real CPU, RAM,
-                         disk, network and process data via `sysinfo`
-```
-```
+    src-tauri/
+    └── get_snapshot          Rust command exposing real CPU, RAM,
+                              disk, network and process data via `sysinfo`
 
 **Why this shape works:** nearly every visual concern (color, glass effect, spacing, animation timing) lives in `Card` and a handful of CSS custom properties. Features added later (themes, fullscreen, error boundaries, i18n) reach the whole app by touching that one shared layer, rather than 50 individual panel files.
 
