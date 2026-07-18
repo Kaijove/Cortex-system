@@ -87,14 +87,6 @@ Instead of pretending otherwise, Cortex clearly labels it as **`EXAMPLE`** or **
 
 <br>
 
-<div align="center">
-
-### 🎯 The Philosophy
-
-**Cortex doesn't try to look smart by inventing information.**
-
-It earns trust by clearly showing **what it knows**, **what it measures**, and **what it simply cannot verify**.
-
 </div>
 
 
