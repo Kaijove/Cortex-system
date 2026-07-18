@@ -1,7 +1,7 @@
 <div align="center">
 
 # Cortex
-
+<td width="100%"><img src="docs/screenshots/calendar-logs.png" alt="Calendar and live logs panel" width="100%"/><p align="center">Color-coded live system logs with filtering, next to the monthly calendar widget.</p></td>
 ### Your system, actually understood.
 
 A real-time system monitoring desktop app that tells you the truth — what's measured live from your machine, what's a genuine network probe, and what's illustrative example data. No fake charts pretending to be real telemetry.
