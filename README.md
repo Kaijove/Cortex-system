@@ -53,7 +53,7 @@ That distinction is the actual point of the project, not a footnote.
 <img src="docs/screenshots/automation.png" alt="Automation rule engine, scheduler and notification preferences" width="20%"/>
 <p align="center"><b>Automation & Monitoring</b> — a visual <code>IF metric &gt; threshold THEN action</code> rule engine evaluated every tick against real state, a live-countdown task scheduler, and an incident center.</p>
 
-<img src="docs/screenshots/analytics-overview.png" alt="Analytics overview with KPIs, health trend and correlation panels" width="50%"/>
+<img src="docs/screenshots/analytics-overview.png" alt="Analytics overview with KPIs, health trend and correlation panels" width="10%"/>
 <p align="center"><b>Advanced Analytics</b> — a real, persistent history store (sampled ~1/min). No fake "30 days" of history on first launch: the UI tells you exactly how much real data it's collected so far.</p>
 
 <details>
