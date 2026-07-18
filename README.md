@@ -67,15 +67,15 @@ That distinction is the actual point of the project, not a footnote.
 </tr>
 <tr>
 <td width="50%"><img src="docs/screenshots/processes-notes.png" alt="Process table with notes and calendar widgets" width="100%"/><p align="center">Live process table (search/sort/context menu) alongside Notes and Calendar productivity widgets.</p></td>
-<td width="50%"><img src="docs/screenshots/calendar-logs.png" alt="Calendar and live logs panel" width="100%"/><p align="center">Color-coded live system logs with filtering, next to the monthly calendar widget.</p></td>
+<td width="30%"><img src="docs/screenshots/calendar-logs.png" alt="Calendar and live logs panel" width="100%"/><p align="center">Color-coded live system logs with filtering, next to the monthly calendar widget.</p></td>
 </tr>
 <tr>
-<td width="50%"><img src="docs/screenshots/analytics-correlations.png" alt="Metric correlations and performance timeline" width="100%"/><p align="center">Real Pearson correlation between metrics, and a unified timeline merging alerts, snapshots and events.</p></td>
-<td width="50%"><img src="docs/screenshots/settings-dashboard.png" alt="Widget visibility settings" width="100%"/><p align="center">Toggle any of the 50+ widgets on or off — the whole dashboard is yours to configure.</p></td>
+<td width="30%"><img src="docs/screenshots/analytics-correlations.png" alt="Metric correlations and performance timeline" width="100%"/><p align="center">Real Pearson correlation between metrics, and a unified timeline merging alerts, snapshots and events.</p></td>
+<td width="30%"><img src="docs/screenshots/settings-dashboard.png" alt="Widget visibility settings" width="100%"/><p align="center">Toggle any of the 50+ widgets on or off — the whole dashboard is yours to configure.</p></td>
 </tr>
 <tr>
-<td width="50%"><img src="docs/screenshots/settings-accessibility.png" alt="Accessibility settings: reduced motion, high contrast, sound" width="100%"/><p align="center">Forced reduced-motion and high-contrast modes, independent of the OS-level preference — plus an opt-in real Web Audio sound system.</p></td>
-<td width="50%"><img src="docs/screenshots/settings-shortcuts.png" alt="Keyboard shortcuts reference" width="100%"/><p align="center">Every keyboard shortcut in one place, from the command palette (<code>Ctrl/Cmd+K</code>) to quick theme switching.</p></td>
+<td width="30%"><img src="docs/screenshots/settings-accessibility.png" alt="Accessibility settings: reduced motion, high contrast, sound" width="100%"/><p align="center">Forced reduced-motion and high-contrast modes, independent of the OS-level preference — plus an opt-in real Web Audio sound system.</p></td>
+<td width="30%"><img src="docs/screenshots/settings-shortcuts.png" alt="Keyboard shortcuts reference" width="100%"/><p align="center">Every keyboard shortcut in one place, from the command palette (<code>Ctrl/Cmd+K</code>) to quick theme switching.</p></td>
 </tr>
 </table>
 
