@@ -8,7 +8,7 @@ A real-time system monitoring desktop app that tells you the truth — what's me
 
 [![Live preview](https://img.shields.io/badge/live%20preview-cortex--system.netlify.app-2dd4ee?style=for-the-badge)](https://cortex-system.netlify.app/)
 
-![status](https://img.shields.io/badge/status-production--ready-2dd4ee) ![license](https://img.shields.io/badge/license-MIT-a78bfa) ![stack](https://img.shields.io/badge/stack-React%20%2B%20Rust-34d399) ![i18n](https://img.shields.io/badge/i18n-CA%20%7C%20EN-f5a623)
+![Status](https://img.shields.io/badge/Status-Active_Development-orange?style=for-the-badge) ![license](https://img.shields.io/badge/license-MIT-a78bfa) ![stack](https://img.shields.io/badge/stack-React%20%2B%20Rust-34d399) ![i18n](https://img.shields.io/badge/i18n-CA%20%7C%20EN-f5a623)
 
 ---
 
