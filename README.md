@@ -2,9 +2,27 @@ posali emjois i tot aixo: visual i ben fet: <div align="center">
 
 # Cortex
 <td width="100%"><img src="docs/screenshots/calendar-logs.png" alt="Calendar and live logs panel" width="100%"/><p align="center">Color-coded live system logs with filtering, next to the monthly calendar widget.</p></td>
-### Your system, actually understood.
+<h3>⚡ Your system, actually understood.</h3>
 
-A real-time system monitoring desktop app that tells you the truth — what's measured live from your machine, what's a genuine network probe, and what's illustrative example data. No fake charts pretending to be real telemetry.
+<p align="center">
+<b>Cortex</b> is a next-generation desktop monitoring platform that combines
+real-time system telemetry, network diagnostics, automation,
+AI-powered insights and advanced analytics into one elegant interface.
+</p>
+
+<p align="center">
+Every metric has a clear origin:
+<b>real measurements</b> when they exist,
+<b>clearly-labelled examples</b> when they don't.
+</p>
+
+<p align="center">
+🖥️ Real OS Metrics &nbsp;&nbsp;•&nbsp;&nbsp;
+🌐 Network Diagnostics &nbsp;&nbsp;•&nbsp;&nbsp;
+📊 Analytics &nbsp;&nbsp;•&nbsp;&nbsp;
+🤖 AI Insights &nbsp;&nbsp;•&nbsp;&nbsp;
+🎨 Personalization
+</p>
 
 [![Live preview](https://img.shields.io/badge/live%20preview-cortex--system.netlify.app-2dd4ee?style=for-the-badge)](https://cortex-system.netlify.app/)
 
