@@ -1,4 +1,4 @@
-posali emjois i tot aixo: visual i ben fet: <div align="center">
+<div align="center">
 
 # Cortex
 <td width="100%"><img src="docs/screenshots/calendar-logs.png" alt="Calendar and live logs panel" width="100%"/><p align="center">Color-coded live system logs with filtering, next to the monthly calendar widget.</p></td>
